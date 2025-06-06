@@ -19,7 +19,7 @@ import com.example.junkfoodcounterapp.databinding.ActivityMainBinding
 import com.example.junkfoodcounterapp.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
-     lateinit var layout: ActivityMainBinding
+    lateinit var layout: ActivityMainBinding
     lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
