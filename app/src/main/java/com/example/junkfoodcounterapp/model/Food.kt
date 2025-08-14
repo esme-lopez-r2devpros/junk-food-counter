@@ -10,7 +10,7 @@ import java.util.Date
 data class Food(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name= "id_Food")  var idFood: Int = 0,
-    @ColumnInfo(name= "iconName") var iconName: String = "",
-    @ColumnInfo(name= "name")     var name:  String = "",
-    @ColumnInfo(name = "times")   var times: List<Date>
+    @ColumnInfo(name= "iconName") var iconName: String? = "",
+    @ColumnInfo(name= "name")     var name:  String? = "",
+    @ColumnInfo(name = "times")   var times: List<Date>? = emptyList()
 ):Serializable

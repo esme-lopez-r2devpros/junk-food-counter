@@ -35,7 +35,7 @@ class FoodAdapter(private val dataSet: List<Food>) :
 
         fun bindItem(food: Food){
             binding.txtName.text = context.getString(R.string.food_name_tag, food.name)
-            binding.txtTimes.text = food.times.size.toString()
+            binding.txtTimes.text = food.times?.size.toString()
             binding.imgIcon.setImageResource(R.drawable.ic_fast_food)
         }
     }
