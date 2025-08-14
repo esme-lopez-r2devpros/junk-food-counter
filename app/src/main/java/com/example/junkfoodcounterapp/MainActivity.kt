@@ -1,5 +1,6 @@
 package com.example.junkfoodcounterapp
 
+import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.View
@@ -15,7 +16,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.junkfoodcounterapp.adapters.FoodAdapter
+import com.example.junkfoodcounterapp.config.Constants
 import com.example.junkfoodcounterapp.databinding.ActivityMainBinding
+import com.example.junkfoodcounterapp.ui.FormActivity
 import com.example.junkfoodcounterapp.viewmodel.MainViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -44,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         }
         
         viewModel.foodList.observe(this, Observer{
-            Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_LONG).show()
-            layout.myRecyclerView.adapter = FoodAdapter(it)
+            //Toast.makeText(applicationContext, it.toString(), Toast.LENGTH_LONG).show()
+            layout.myRecyclerView.adapter = it?.let { it1 -> FoodAdapter(it1) }
         })
         val items = resources.getStringArray(R.array.spinner_items)
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, items)
@@ -58,12 +61,18 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                //
+                //I need to code when we change from next to month
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
             }
 
+        }
+
+        layout.btnAdd.setOnClickListener {
+            val intent = Intent(this, FormActivity::class.java)
+            intent.putExtra(Constants.OPERATION_KEY, Constants.OPERATION_INSERT)
+            startActivity(intent)
         }
     }
 
