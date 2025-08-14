@@ -6,6 +6,8 @@
     <string name="hamburger">Hamburger:</string>
     <string name="food_name_tag">%1$s:</string>
     <string name="_3_times">3 times</string>
+    <string name="add_a_food">add-a-food</string>
+    <string name="plus">+</string>
 
 
     <string-array name="spinner_items">
